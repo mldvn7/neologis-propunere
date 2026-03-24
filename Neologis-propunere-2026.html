@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Propunere Comercială — Neologis</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:       #0d2461;
+      --navy-light: #1e3a8a;
+      --navy-soft:  #dbeafe;
+      --accent:     #2563eb;
+      --bg:         #f4f6fb;
+      --surface:    #ffffff;
+      --border:     #e2e8f0;
+      --text-h:     #0d2461;
+      --text-body:  #475569;
+      --text-muted: #94a3b8;
+      --green:      #059669;
+      --shadow-sm:  0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+      --shadow-md:  0 4px 16px rgba(13,36,97,.08);
+      --shadow-lg:  0 8px 32px rgba(13,36,97,.12);
+      --radius:     12px;
+      --radius-sm:  8px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text-body);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── TOP BAR ──────────────────────────────────────────── */
+    .topbar {
+      background: var(--navy);
+      color: rgba(255,255,255,.7);
+      font-size: .75rem;
+      font-weight: 500;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      padding: .6rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .topbar span { color: rgba(255,255,255,.5); }
+
+    /* ─── HEADER ────────────────────────────────────────────── */
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 1.25rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: var(--shadow-sm);
+    }
+    .logo-mark {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+    }
+    .logo-icon {
+      width: 36px; height: 36px;
+      background: var(--navy);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .logo-icon svg { width: 18px; height: 18px; fill: white; }
+    .logo-text { font-size: .95rem; font-weight: 700; color: var(--text-h); }
+    .logo-text span { font-weight: 400; color: var(--text-muted); margin-left: .3rem; }
+
+    .badge-confidential {
+      background: #fef3c7;
+      color: #92400e;
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      padding: .25rem .75rem;
+      border-radius: 20px;
+      border: 1px solid #fde68a;
+    }
+
+    /* ─── HERO ──────────────────────────────────────────────── */
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, #1e3a8a 60%, #1d4ed8 100%);
+      color: white;
+      padding: 5rem 2rem 4.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(circle at 20% 80%, rgba(255,255,255,.04) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255,255,255,.06) 0%, transparent 50%);
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 20px;
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: .35rem 1rem;
+      margin-bottom: 1.75rem;
+      position: relative;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: #34d399;
+      border-radius: 50%;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -.02em;
+      margin-bottom: 1.25rem;
+      position: relative;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: #93c5fd;
+    }
+    .hero-sub {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,.75);
+      max-width: 560px;
+      margin: 0 auto 2.5rem;
+      font-weight: 400;
+      position: relative;
+    }
+    .hero-meta {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+      position: relative;
+    }
+    .hero-meta-item {
+      text-align: center;
+    }
+    .hero-meta-item .val {
+      display: block;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: white;
+    }
+    .hero-meta-item .lbl {
+      font-size: .75rem;
+      color: rgba(255,255,255,.55);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+    .hero-divider {
+      width: 1px; background: rgba(255,255,255,.2);
+      align-self: stretch;
+    }
+
+    /* ─── LAYOUT ────────────────────────────────────────────── */
+    .container { max-width: 860px; margin: 0 auto; padding: 0 1.5rem; }
+
+    /* ─── SECTIONS ──────────────────────────────────────────── */
+    .section { padding: 3.5rem 0; }
+    .section + .section { padding-top: 0; }
+
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      margin-bottom: 2rem;
+    }
+    .section-label .pill {
+      width: 28px; height: 28px;
+      background: var(--navy);
+      color: white;
+      border-radius: 6px;
+      font-size: .7rem;
+      font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .section-label h2 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text-h);
+      letter-spacing: -.01em;
+    }
+
+    /* ─── INTRO CARD ────────────────────────────────────────── */
+    .intro-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem 2.25rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .intro-card p {
+      font-size: .975rem;
+      line-height: 1.8;
+      color: var(--text-body);
+    }
+    .intro-card p + p { margin-top: 1rem; }
+
+    /* ─── SERVICE CARDS ─────────────────────────────────────── */
+    .services { display: flex; flex-direction: column; gap: 1.25rem; }
+
+    .service-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow .2s, transform .2s;
+    }
+    .service-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-1px);
+    }
+
+    .service-card-inner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1.5rem;
+      padding: 1.75rem 2rem;
+      align-items: start;
+    }
+
+    .service-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px; height: 22px;
+      background: var(--navy-soft);
+      color: var(--navy);
+      font-size: .65rem;
+      font-weight: 700;
+      border-radius: 50%;
+      margin-bottom: .75rem;
+    }
+
+    .service-name {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-h);
+      margin-bottom: .4rem;
+      letter-spacing: -.01em;
+    }
+    .service-desc {
+      font-size: .875rem;
+      color: var(--text-body);
+      margin-bottom: 1.1rem;
+      line-height: 1.65;
+    }
+    .deliverables {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .4rem;
+    }
+    .tag {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text-body);
+      font-size: .72rem;
+      font-weight: 500;
+      padding: .2rem .6rem;
+      border-radius: 20px;
+    }
+
+    .price-block {
+      text-align: right;
+      min-width: 130px;
+    }
+    .price-main {
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: -.02em;
+      line-height: 1.1;
+      white-space: nowrap;
+    }
+    .price-note {
+      font-size: .72rem;
+      color: var(--text-muted);
+      margin-top: .2rem;
+    }
+    .price-option {
+      margin-top: .75rem;
+      background: var(--bg);
+      border: 1px dashed var(--border);
+      border-radius: var(--radius-sm);
+      padding: .6rem .85rem;
+      text-align: left;
+    }
+    .price-option .opt-label {
+      font-size: .68rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      color: var(--accent);
+      margin-bottom: .15rem;
+    }
+    .price-option .opt-text {
+      font-size: .78rem;
+      color: var(--text-body);
+    }
+    .price-option .opt-price {
+      font-size: .85rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .service-card .card-footer {
+      border-top: 1px solid var(--border);
+      background: var(--bg);
+      padding: .65rem 2rem;
+      font-size: .72rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+    }
+    .card-footer-dot {
+      width: 6px; height: 6px;
+      background: #34d399;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ─── INVESTMENT SUMMARY ────────────────────────────────── */
+    .investment-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+    .investment-table { width: 100%; border-collapse: collapse; }
+    .investment-table td {
+      padding: .9rem 1.75rem;
+      font-size: .9rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .investment-table td:last-child { text-align: right; font-weight: 600; color: var(--text-h); }
+    .investment-table tr:last-child td { border-bottom: none; }
+    .investment-table .row-muted td { color: var(--text-muted); font-size: .82rem; }
+    .investment-table .row-option td { background: #f0f7ff; }
+    .investment-table .row-option td:first-child { font-style: italic; }
+
+    .investment-total {
+      background: var(--navy);
+      padding: 1.5rem 1.75rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .investment-total .total-label {
+      color: rgba(255,255,255,.75);
+      font-size: .85rem;
+      font-weight: 500;
+    }
+    .investment-total .total-main {
+      color: white;
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: -.02em;
+    }
+    .investment-total .total-note {
+      color: rgba(255,255,255,.5);
+      font-size: .72rem;
+      margin-top: .2rem;
+    }
+    .investment-total .total-alt {
+      text-align: right;
+    }
+    .investment-total .total-alt-label {
+      font-size: .72rem;
+      color: rgba(255,255,255,.5);
+    }
+    .investment-total .total-alt-price {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #93c5fd;
+    }
+
+    /* ─── TERMS ─────────────────────────────────────────────── */
+    .terms-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+    .term-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 1.25rem 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .term-card .term-icon {
+      font-size: 1.25rem;
+      margin-bottom: .5rem;
+    }
+    .term-card .term-title {
+      font-size: .8rem;
+      font-weight: 700;
+      color: var(--text-h);
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      margin-bottom: .3rem;
+    }
+    .term-card .term-val {
+      font-size: .9rem;
+      color: var(--text-body);
+    }
+
+    /* ─── CTA ────────────────────────────────────────────────── */
+    .cta-section {
+      background: linear-gradient(135deg, var(--navy) 0%, #1e3a8a 100%);
+      border-radius: var(--radius);
+      padding: 3rem 2.5rem;
+      text-align: center;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(circle at 70% 30%, rgba(255,255,255,.05) 0%, transparent 60%);
+    }
+    .cta-section h2 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: .75rem;
+      position: relative;
+    }
+    .cta-section p {
+      color: rgba(255,255,255,.7);
+      font-size: .975rem;
+      margin-bottom: 2rem;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      background: white;
+      color: var(--navy);
+      font-size: .95rem;
+      font-weight: 700;
+      padding: .9rem 2rem;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      transition: transform .15s, box-shadow .15s;
+      position: relative;
+      box-shadow: 0 4px 12px rgba(0,0,0,.15);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,.2);
+    }
+    .btn-primary svg {
+      width: 18px; height: 18px;
+    }
+    .cta-note {
+      margin-top: 1.25rem;
+      font-size: .78rem;
+      color: rgba(255,255,255,.45);
+      position: relative;
+    }
+
+    /* ─── FOOTER ─────────────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 0;
+      text-align: center;
+      font-size: .78rem;
+      color: var(--text-muted);
+      margin-top: 3.5rem;
+    }
+    footer strong { color: var(--text-body); }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────────── */
+    @media (max-width: 600px) {
+      .topbar { flex-direction: column; gap: .25rem; text-align: center; }
+      .service-card-inner { grid-template-columns: 1fr; }
+      .price-block { text-align: left; }
+      .hero-meta { gap: 1.25rem; }
+      .hero-divider { display: none; }
+      .investment-total { flex-direction: column; align-items: flex-start; }
+      .investment-total .total-alt { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <span>Propunere Comercială · Confidențial</span>
+  <span>Pregătit pentru Neologis · Martie 2026</span>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="logo-mark">
+    <div class="logo-icon">
+      <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+    </div>
+    <div class="logo-text">Perspective Institute<span>pentru Neologis</span></div>
+  </div>
+  <span class="badge-confidential">Uz intern · Confidențial</span>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">Propunere personalizată</div>
+  <h1>Comunicare mai clară.<br /><em>Rezultate mai bune pentru Neologis.</em></h1>
+  <p class="hero-sub">O propunere de servicii de marketing și comunicare gândită special pentru nevoile echipei Neologis.</p>
+  <div class="hero-meta">
+    <div class="hero-meta-item">
+      <span class="val">5</span>
+      <span class="lbl">Servicii</span>
+    </div>
+    <div class="hero-divider"></div>
+    <div class="hero-meta-item">
+      <span class="val">€7.650</span>
+      <span class="lbl">Investiție totală</span>
+    </div>
+    <div class="hero-divider"></div>
+    <div class="hero-meta-item">
+      <span class="val">~10 săpt.</span>
+      <span class="lbl">Durată estimată</span>
+    </div>
+  </div>
+</div>
+
+<!-- BODY -->
+<div class="container">
+
+  <!-- INTRO -->
+  <div class="section">
+    <div class="section-label">
+      <div class="pill">↗</div>
+      <h2>Contextul propunerii</h2>
+    </div>
+    <div class="intro-card">
+      <p>Neologis este unul dintre cei mai importanți distribuitori de echipamente de radiologie din România, cu acoperire în domeniile veterinar, stomatologic și medicina umană. Produsele pe care le reprezentați au un impact real în practica clinică — și merită o comunicare pe măsură.</p>
+      <p>Această propunere acoperă un pachet complet de servicii de marketing și comunicare: de la identitate vizuală și materiale de prezentare, până la un sistem automatizat de generare și nurturare a clienților prin webinar și email marketing. Totul gândit pentru a funcționa împreună, nu separat.</p>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <div class="section">
+    <div class="section-label">
+      <div class="pill">01</div>
+      <h2>Servicii incluse în propunere</h2>
+    </div>
+    <div class="services">
+
+      <!-- 1. Brand Refresh -->
+      <div class="service-card">
+        <div class="service-card-inner">
+          <div>
+            <div class="service-number">1</div>
+            <div class="service-name">Brand Refresh</div>
+            <p class="service-desc">Light rebranding care aduce coerență vizuală în toate punctele de contact ale brandului Neologis — de la social media la materialele tipărite. Nu reinventăm identitatea, o rafinăm și o facem mai aplicabilă în contextele actuale.</p>
+            <div class="deliverables">
+              <span class="tag">Template-uri social media</span>
+              <span class="tag">Foi cu antet</span>
+              <span class="tag">Cărți de vizită</span>
+              <span class="tag">Elemente vizuale broșuri</span>
+              <span class="tag">Elemente vizuale pliante</span>
+            </div>
+          </div>
+          <div class="price-block">
+            <div class="price-main">€2.500</div>
+            <div class="price-note">+TVA</div>
+            <div class="price-option">
+              <div class="opt-label">Opțional</div>
+              <div class="opt-text">Includem redesign website <em>(fără implementare)</em></div>
+              <div class="opt-price">+€1.800 <span style="font-weight:400;font-size:.75rem;color:var(--text-muted)">(total €4.300)</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <span class="card-footer-dot"></span>
+          Livrare: fișiere print-ready + formate digitale · 3–4 săptămâni
+        </div>
+      </div>
+
+      <!-- 2. Webinar Funnel -->
+      <div class="service-card">
+        <div class="service-card-inner">
+          <div>
+            <div class="service-number">2</div>
+            <div class="service-name">Webinar Funnel</div>
+            <p class="service-desc">Un sistem complet de atragere și conversie a participanților la webinar — de la prima interacțiune până în momentul prezentării live. Pagina de înregistrare, emailul de confirmare și slide deck-ul sunt gândite unitar, cu un fir narativ coerent.</p>
+            <div class="deliverables">
+              <span class="tag">Pagină de înregistrare</span>
+              <span class="tag">Email de confirmare</span>
+              <span class="tag">Slide deck webinar</span>
+              <span class="tag">Copywriting inclus</span>
+            </div>
+          </div>
+          <div class="price-block">
+            <div class="price-main">€1.800</div>
+            <div class="price-note">+TVA</div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <span class="card-footer-dot"></span>
+          Livrare: fișiere editabile + HTML pentru pagini · 2–3 săptămâni
+        </div>
+      </div>
+
+      <!-- 3. Email Workflows -->
+      <div class="service-card">
+        <div class="service-card-inner">
+          <div>
+            <div class="service-number">3</div>
+            <div class="service-name">Secvențe Email Automatizate</div>
+            <p class="service-desc">Emailurile care fac munca în locul tău. Construim două fluxuri complete: unul legat de webinar (pre și post-eveniment) și unul pentru newsletter — cu mesaje scrise, template-uri grafice și structura de automatizare gata de implementat.</p>
+            <div class="deliverables">
+              <span class="tag">Workflow webinar (pre + post)</span>
+              <span class="tag">Secvență newsletter</span>
+              <span class="tag">Copywriting complet</span>
+              <span class="tag">Template-uri HTML email</span>
+              <span class="tag">Documentare flux automatizare</span>
+            </div>
+          </div>
+          <div class="price-block">
+            <div class="price-main">€1.250</div>
+            <div class="price-note">+TVA</div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <span class="card-footer-dot"></span>
+          Livrare: fișiere HTML + documentare Mailchimp / ActiveCampaign · 2 săptămâni
+        </div>
+      </div>
+
+      <!-- 4. Pliant -->
+      <div class="service-card">
+        <div class="service-card-inner">
+          <div>
+            <div class="service-number">4</div>
+            <div class="service-name">Pliant Prezentare Produs Nou</div>
+            <p class="service-desc">Material de prezentare pentru un produs nou din portofoliu, livrat atât în format digital (PDF interactiv, partajabil) cât și pregătit pentru tipărire. Design curat, ierarhie clară, focalizat pe beneficiile clinice ale produsului.</p>
+            <div class="deliverables">
+              <span class="tag">Variantă digitală (PDF)</span>
+              <span class="tag">Variantă print-ready</span>
+              <span class="tag">Copywriting inclus</span>
+            </div>
+          </div>
+          <div class="price-block">
+            <div class="price-main">€250</div>
+            <div class="price-note">+TVA</div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <span class="card-footer-dot"></span>
+          Livrare: PDF + fișiere sursă (AI/InDesign) · 1 săptămână
+        </div>
+      </div>
+
+      <!-- 5. Plan Editorial -->
+      <div class="service-card">
+        <div class="service-card-inner">
+          <div>
+            <div class="service-number">5</div>
+            <div class="service-name">Plan Editorial — 3 Luni</div>
+            <p class="service-desc">Un plan editorial structurat care acoperă simultan email marketing și social media timp de 3 luni. Include teme, tipuri de conținut, frecvență și mesaje-cheie — totul adaptat la specificul domeniului medical/veterinar și la obiectivele Neologis.</p>
+            <div class="deliverables">
+              <span class="tag">Calendar editorial complet</span>
+              <span class="tag">Strategia de conținut email</span>
+              <span class="tag">Strategia social media</span>
+              <span class="tag">Teme lunare + idei de postări</span>
+              <span class="tag">Ghid de ton și voce</span>
+            </div>
+          </div>
+          <div class="price-block">
+            <div class="price-main">€1.850</div>
+            <div class="price-note">+TVA</div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <span class="card-footer-dot"></span>
+          Livrare: document Google Sheets + brief de conținut · 1–2 săptămâni
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- INVESTMENT -->
+  <div class="section">
+    <div class="section-label">
+      <div class="pill">02</div>
+      <h2>Sumar investiție</h2>
+    </div>
+    <div class="investment-box">
+      <table class="investment-table">
+        <tbody>
+          <tr>
+            <td>Brand Refresh</td>
+            <td>€2.500</td>
+          </tr>
+          <tr>
+            <td>Webinar Funnel</td>
+            <td>€1.800</td>
+          </tr>
+          <tr>
+            <td>Secvențe Email Automatizate</td>
+            <td>€1.250</td>
+          </tr>
+          <tr>
+            <td>Pliant Prezentare Produs Nou</td>
+            <td>€250</td>
+          </tr>
+          <tr>
+            <td>Plan Editorial 3 Luni</td>
+            <td>€1.850</td>
+          </tr>
+          <tr class="row-option">
+            <td>+ Opțional: Redesign Website (fără implementare)</td>
+            <td>+€1.800</td>
+          </tr>
+          <tr class="row-muted">
+            <td colspan="2">Toate prețurile sunt +TVA, conform legislației în vigoare.</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="investment-total">
+        <div>
+          <div class="total-label">Total pachet standard</div>
+          <div class="total-main">€7.650</div>
+          <div class="total-note">+TVA · 5 servicii</div>
+        </div>
+        <div class="total-alt">
+          <div class="total-alt-label">Cu redesign website</div>
+          <div class="total-alt-price">€9.450 +TVA</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TERMS -->
+  <div class="section">
+    <div class="section-label">
+      <div class="pill">03</div>
+      <h2>Termeni și condiții</h2>
+    </div>
+    <div class="terms-grid">
+      <div class="term-card">
+        <div class="term-icon">📅</div>
+        <div class="term-title">Valabilitate ofertă</div>
+        <div class="term-val">30 de zile de la data emiterii</div>
+      </div>
+      <div class="term-card">
+        <div class="term-icon">💳</div>
+        <div class="term-title">Modalitate de plată</div>
+        <div class="term-val">50% avans · 50% la livrare finală</div>
+      </div>
+      <div class="term-card">
+        <div class="term-icon">🔄</div>
+        <div class="term-title">Revizuiri incluse</div>
+        <div class="term-val">2 runde de revizuiri per serviciu</div>
+      </div>
+      <div class="term-card">
+        <div class="term-icon">📋</div>
+        <div class="term-title">TVA</div>
+        <div class="term-val">Prețurile nu includ TVA (se adaugă conform legii)</div>
+      </div>
+      <div class="term-card">
+        <div class="term-icon">⚙️</div>
+        <div class="term-title">Implementare</div>
+        <div class="term-val">Nu este inclusă (livrăm fișiere + documentare)</div>
+      </div>
+      <div class="term-card">
+        <div class="term-icon">🤝</div>
+        <div class="term-title">Servicii individuale</div>
+        <div class="term-val">Fiecare serviciu poate fi contractat separat</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="section">
+    <div class="cta-section">
+      <h2>Hai să discutăm detaliile</h2>
+      <p>Avem o propunere clară — și suntem gata să o adaptăm nevoilor exacte ale Neologis. Trimite-ne un email și stabilim un apel de 30 de minute.</p>
+      <a href="mailto:cristian+ocld@cristianmoldovan.com?subject=Propunere%20comerciala%20Neologis%20%E2%80%94%20dorim%20sa%20discutam&body=Buna%20ziua%2C%0A%0AAm%20parcurs%20propunerea%20comerciala%20si%20dorim%20sa%20discutam%20detaliile.%0A%0AVa%20multumim%2C" class="btn-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+        </svg>
+        Trimite un email
+      </a>
+      <div class="cta-note">cristian+ocld@cristianmoldovan.com · Răspundem în 24 de ore</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <strong>Perspective Institute</strong> · Propunere pregătită pentru Neologis · Martie 2026<br />
+    Document confidențial — pentru uz intern al Neologis
+  </div>
+</footer>
+
+</body>
+</html>
